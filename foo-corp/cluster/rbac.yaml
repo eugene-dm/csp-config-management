@@ -1,6 +1,22 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
+  name: gateway-impersonate-lpgprj-sbo-n-vbspdt-gl-02_connect-agent-sa
+  labels:
+    connect.gke.io/owner-feature: connect-gateway
+rules:
+  - apiGroups:
+      - ""
+    resourceNames:
+      - "system:serviceaccount:gke-connect:connect-agent-sa"
+    resources:
+      - users
+    verbs:
+      - impersonate
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
   name: gateway-impersonate-lpgprj-sbo-n-vbspdt-gl-02_edmitrichenko_anthos-bm
   labels:
     connect.gke.io/owner-feature: connect-gateway
